@@ -1,46 +1,28 @@
-import React, { Component } from 'react'
-import './App.css'
+import React from 'react';
 import HomeComponent from './Components/HomeComponent '
-import QuizComponent from './Components/QuizComponent '
-import ResultComponent from './Components/ResultComponent'
+import QuizComponent from './Components/QuizComponent ';
+import ResultComponent from './Components/ResultComponent';
+import { useState } from 'react';
 
-export default class App extends Component {
-  constructor(){
-    super();
-    this.state = {
-      pageNo : 0
-    }
-  }
-
-  updatestate=(page)=>{
-    console.log(this.state.pageNo)
-    this.setState(()=>{
-      return {
-        pageNo: page
-      }
-    })
-  }
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
-  render() {
-    if(this.state.pageNo == 0){
-        return(
-          <HomeComponent props1 = {this.updatestate}/>
-        )
-    }
-    else if(this.state.pageNo == 1){
-      return(
-        <QuizComponent props1 = {this.updatestate}/>
-      )
-    }
-    else if(this.state.pageNo == 2){
-      return (
-        <>
-          <ResultComponent props1 = {this.updatestate}/>
-        </>
-    )
-    }
-    
-  }
+
+
+export default function App() {
+
+  const [score, setScore] = useState(0);
+  const [ind, setInd] = useState(0);
+  const [wrongAns, setWrongans] = useState(0)
+
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomeComponent />} />
+        <Route path="/quizPage" element={<QuizComponent  score={score} setScore = {setScore} ind = {ind} setInd={setInd} wrongAns={wrongAns} setWrongans={setWrongans}/>} />
+        <Route path="/resultPage" element={<ResultComponent score={score} setScore = {setScore}  ind = {ind} setInd={setInd} wrongAns={wrongAns} setWrongans={setWrongans}/>} />
+      </Routes>
+    </Router>
+  );
 }
-

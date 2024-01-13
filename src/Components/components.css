@@ -8,7 +8,7 @@
 
 
 body{
-    overflow: hidden;
+    /* overflow: hidden; */
     background-color: #473a8d;
 }
 
@@ -21,7 +21,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 48.57vw;
+    height: 100vh;
 }
 
 .Quizapp{
@@ -32,7 +32,7 @@ body{
 
 .PlayButton{
     cursor: pointer;
-    width: 12%;
+    width: 150px;
     margin: 2%;
     height: 45px;
     background-color: #0AB306;
@@ -106,7 +106,7 @@ body{
 }
 
 .downbuttons button{
-    margin: 5% 4% 4% 4%;
+    margin: 50px;
     padding: 8px;
     width: 100px;
     border-radius: 5px;
@@ -137,13 +137,18 @@ body{
     border: 0px;
 }
 
+.finish{
+    border-radius: 5px;
+    margin-top: 5%;
+}
+
 
 /* Result page */
 
 .Main{
     width: 100%;
     background-color: #5c7fcc;
-    height: 49vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -194,6 +199,7 @@ body{
     width: 50%;
     margin-top: 2%;
     justify-content: center;
+    gap: 50px;
 }
 
 .twobuttons button{
